@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good bye 세인쌤</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div id="loading">
+    <div class="loading-card">
+        <div class="loading-icon">♡</div>
+        <p>메모 불러오는 중...</p>
+    </div>
+</div>
+
+    <div class="phone">
+        <div class="top-bar">
+            <span class="back">메모</span>
+            <span class="menu">···</span>
+        </div>
+
+        <main class="note">
+            <p class="date">2026년 · 교생 마지막 메모</p>
+
+            <h1>Good bye<br>세인쌤</h1>
+
+            <p class="content">
+                세인쌤에게 마지막으로 전하고 싶은 말을<br>
+                메모처럼 남겨주세요.
+            </p>
+
+            <p class="sub">
+                작성한 내용은 선생님만 볼 수 있어요.<br>
+                친구들은 누가 작성했는지만 볼 수 있습니다.
+            </p>
+
+            <a href="/letter" class="start-btn">메모 작성하러 가기</a>
+        </main>
+    </div>
+    <script>
+    window.addEventListener("load", () => {
+        setTimeout(() => {
+                document.querySelector("#loading").classList.add("hide");
+            }, 700);
+        });
+    </script>
+</body>
+</html>

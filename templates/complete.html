@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>작성 완료</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="phone">
+        <div class="top-bar">
+            <span class="back">메모</span>
+            <span class="menu">···</span>
+        </div>
+
+        <main class="note complete-note">
+            <p class="date">메모 저장 완료</p>
+
+            <h1 class="letter-title">메모가 저장되었어요.</h1>
+
+            <div class="letter-box">
+                <p>
+                    세인쌤에게 보내는 메모가 잘 저장되었습니다.
+                </p>
+                <p>
+                    작성한 내용은 선생님만 볼 수 있어요.
+                </p>
+            </div>
+
+            <a href="/board" class="start-btn">메모 목록 보기</a>
+            <a href="/" class="sub-link">처음으로 돌아가기</a>
+        </main>
+    </div>
+</body>
+</html>

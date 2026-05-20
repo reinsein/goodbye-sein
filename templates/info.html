@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정보 입력</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="phone">
+        <div class="top-bar">
+            <a href="/letter" class="back-link">‹ 메모</a>
+            <span class="menu">···</span>
+        </div>
+
+        <main class="note">
+            <p class="date">작성자 정보 입력</p>
+
+            <h1 class="letter-title">누가 남기는 메모인가요?</h1>
+
+            <form action="/write" method="GET" class="info-form">
+
+                <label>학번</label>
+                <input
+                    type="text"
+                    name="student_id"
+                    inputmode="numeric"
+                    pattern="[0-9]+"
+                    maxlength="5"
+                    placeholder="예: 10101"
+                    required
+                >
+
+                <label>이름</label>
+                <input
+                    type="text"
+                    name="name"
+                    pattern="[가-힣]+"
+                    placeholder="이름 입력"
+                    required
+                >
+
+                <label>수정 비밀번호</label>
+                <input
+                    type="password"
+                    name="edit_password"
+                    inputmode="numeric"
+                    pattern="[0-9]{4}"
+                    maxlength="4"
+                    placeholder="숫자 4자리"
+                    required
+                >
+
+                <p class="photo-help">
+                    나중에 메모를 수정할 때 필요한 비밀번호예요.<br>
+                    꼭 기억해 주세요.
+                </p>
+
+                <button type="submit" class="start-btn">
+                    다음
+                </button>
+
+            </form>
+        </main>
+    </div>
+</body>
+</html>

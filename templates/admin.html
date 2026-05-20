@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관리자 화면</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="phone">
+        <div class="top-bar">
+            <a href="/" class="back-link">‹ 처음</a>
+            <span class="menu">···</span>
+        </div>
+
+        <main class="note">
+            {% if not login %}
+                <p class="date">관리자 로그인</p>
+                <h1 class="letter-title">세인쌤만 볼 수 있어요</h1>
+
+                <form action="/admin" method="POST" class="info-form">
+                    <label>관리자 비밀번호</label>
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="비밀번호 입력"
+                        required
+                    >
+
+                    {% if error %}
+                        <p class="error-message">{{ error }}</p>
+                    {% endif %}
+
+                    <button type="submit" class="start-btn">확인</button>
+                </form>
+            {% else %}
+                <p class="date">관리자 전용</p>
+                <h1 class="letter-title">전체 메모 보기</h1>
+
+                <a href="/logout" class="small-link">로그아웃</a>
+
+                <div class="admin-list">
+                    {% if messages %}
+                        {% for msg in messages %}
+                            <div class="admin-card">
+                                <div class="admin-info">
+                                    <strong>{{ msg[1] }} {{ msg[2] }}</strong>
+                                </div>
+
+                                <p class="admin-message">{{ msg[3] }}</p>
+
+                                {% if msg[4] %}
+                                    <img
+                                        src="{{ url_for('uploaded_file', filename=msg[4]) }}"
+                                        class="admin-photo"
+                                        alt="첨부 사진"
+                                    >
+                                {% endif %}
+
+                                <form action="/delete/{{ msg[0] }}" method="POST">
+                                    <button type="submit" class="delete-btn">
+                                        삭제
+                                    </button>
+                                </form>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p class="empty-message">아직 작성된 메모가 없어요.</p>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </main>
+    </div>
+</body>
+</html>

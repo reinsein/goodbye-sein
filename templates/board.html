@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메모 목록</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="phone">
+        <div class="top-bar">
+            <a href="/" class="back-link">‹ 처음</a>
+            <span class="menu">···</span>
+        </div>
+
+        <main class="note">
+            <p class="date">작성된 메모 목록</p>
+
+            <h1 class="letter-title">메모를 남긴 친구들</h1>
+
+            <p class="count-text">
+                현재 {{ students|length }}명이 메모를 남겼어요.
+            </p>
+
+            <div class="student-list">
+                {% if students %}
+                    {% for student in students %}
+                        <div class="student-card">
+                            <span class="student-id">{{ student[0] }}</span>
+                            <span class="student-name">{{ student[1] }}</span>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="empty-message">아직 작성된 메모가 없어요.</p>
+                {% endif %}
+            </div>
+        </main>
+    </div>
+</body>
+</html>
