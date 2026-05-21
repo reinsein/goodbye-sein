@@ -22,7 +22,7 @@
                 <h1 class="letter-title">To. 세인쌤</h1>
             {% endif %}
 
-            <form action="/submit" method="POST" class="write-form" enctype="multipart/form-data">
+            <form action="/submit" method="POST" class="write-form">
 
                 <input type="hidden" name="student_id" value="{{ student_id }}">
                 <input type="hidden" name="name" value="{{ name }}">
@@ -38,20 +38,6 @@
                 <div class="count-box">
                     <span id="charCount">0</span>/500
                 </div>
-
-                <label class="photo-label">사진 첨부 선택</label>
-
-                <input
-                    type="file"
-                    name="photos"
-                    accept="image/*"
-                    class="photo-input"
-                >
-
-                <p class="photo-help">
-                    사진은 선택 첨부예요.<br>
-                    JPG, PNG 파일만 가능 / 최대 1장 / 5MB 이하
-                </p>
 
                 <button type="submit" class="start-btn">
                     {% if mode == "edit" %}

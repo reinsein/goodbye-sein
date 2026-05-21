@@ -49,14 +49,6 @@
 
                                 <p class="admin-message">{{ msg[3] }}</p>
 
-                                {% if msg[4] %}
-                                    <img
-                                        src="{{ url_for('uploaded_file', filename=msg[4]) }}"
-                                        class="admin-photo"
-                                        alt="첨부 사진"
-                                    >
-                                {% endif %}
-
                                 <form action="/delete/{{ msg[0] }}" method="POST">
                                     <button type="submit" class="delete-btn">
                                         삭제
